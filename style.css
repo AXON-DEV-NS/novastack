@@ -1,23 +1,227 @@
-:root { --gold: #ffd700; --blue: #4285F4; --glass: rgba(0, 0, 0, 0.85); }
-* { box-sizing: border-box; font-family: 'Tajawal', sans-serif; transition: 0.3s; }
-body { margin: 0; height: 100vh; background: url('25.png') no-repeat center center fixed; background-size: cover; display: flex; justify-content: center; align-items: center; color: white; overflow: hidden; }
-body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: -1; }
-.container { background: var(--glass); backdrop-filter: blur(20px); padding: 25px; border-radius: 30px; border: 1px solid rgba(255, 215, 0, 0.2); width: 95%; max-width: 420px; text-align: center; max-height: 95vh; overflow-y: auto; }
-.admin-mode { border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
-.order-btn { border: none; padding: 12px; border-radius: 12px; color: white; font-weight: bold; cursor: pointer; }
+/* الألوان والخطوط الأساسية */
+:root {
+    --gold: #ffd700;
+    --blue: #4285F4;
+    --green: #28a745;
+    --red: #ff4b2b;
+    --glass: rgba(0, 0, 0, 0.85);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+    transition: 0.3s ease;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: url('25.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: -1;
+}
+
+/* الحاوية الرئيسية */
+.container {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    width: 95%;
+    max-width: 420px;
+    text-align: center;
+    max-height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* شعار NovaStack */
+.brand-logo.floating {
+    animation: float 3s ease-in-out infinite;
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.glow-text {
+    background: linear-gradient(to right, #fff, var(--gold), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 32px;
+    margin: 10px 0;
+}
+
+/* الأزرار العامة */
+.order-btn {
+    border: none;
+    padding: 14px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
 .glow-blue { background: var(--blue); box-shadow: 0 0 15px var(--blue); }
-.glow-green { background: #28a745; box-shadow: 0 0 15px #28a745; }
-.stepper-wrapper { display: flex; justify-content: space-between; margin: 15px 0; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 12px; }
-.step { font-size: 10px; opacity: 0.2; flex: 1; }
-.step.active { opacity: 1; color: var(--gold); font-weight: bold; }
-.glass-input { width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; margin-bottom: 10px; outline: none; }
-.admin-section { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 15px; margin-top: 15px; text-align: right; }
-.image-feed { max-height: 200px; overflow-y: auto; background: #000; border-radius: 10px; padding: 5px; }
-.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: flex; justify-content: center; align-items: center; }
-.modal-content { padding: 30px; max-width: 380px; text-align: center; border: 2px solid var(--gold); border-radius: 20px; }
-.loading-bar { height: 4px; background: var(--gold); width: 0; animation: load 3s infinite; border-radius: 2px; }
-@keyframes load { 0% { width: 0; } 50% { width: 100%; } 100% { width: 0; } }
-.royal-box { background: #000; border: 2px solid var(--gold); padding: 20px; border-radius: 20px; margin-top: 15px; }
-.royal-input-wrapper { display: flex; background: #111; padding: 5px; border-radius: 10px; border: 1px solid #333; }
-.royal-input-wrapper input { flex: 1; background: transparent; border: none; color: var(--gold); outline: none; padding: 5px; font-family: monospace; }
-.logout-btn { background: none; border: 1px solid #ff4b2b; color: #ff4b2b; padding: 5px 10px; border-radius: 8px; cursor: pointer; }
+.glow-green { background: var(--green); box-shadow: 0 0 15px var(--green); }
+
+/* المدخلات */
+.glass-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    color: white;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+/* شبكة الإضافات (Checkboxes) */
+.options-grid {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.options-grid label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* شريط تتبع الطلب */
+.stepper-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.step {
+    font-size: 11px;
+    opacity: 0.2;
+    flex: 1;
+}
+
+.step.active {
+    opacity: 1;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* لوحة المدير */
+.admin-mode {
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+}
+
+.admin-section {
+    background: rgba(255,255,255,0.03);
+    padding: 15px;
+    border-radius: 18px;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.image-feed {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #000;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+/* نوافذ التنبيه */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 30px;
+    max-width: 380px;
+    text-align: center;
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    background: #000;
+}
+
+/* شريط التحميل */
+.loading-bar {
+    height: 4px;
+    background: var(--gold);
+    width: 0;
+    margin-top: 10px;
+    border-radius: 10px;
+    animation: load 3s infinite ease-in-out;
+}
+
+@keyframes load {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+}
+
+/* صندوق الروابط الملكي */
+.royal-box {
+    background: #000;
+    border: 2px solid var(--gold);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.royal-input-wrapper {
+    display: flex;
+    background: #111;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    margin-top: 10px;
+}
+
+.royal-input-wrapper input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    outline: none;
+    padding: 5px;
+}
+
+.logout-btn {
+    background: none;
+    border: 1px solid var(--red);
+    color: var(--red);
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
