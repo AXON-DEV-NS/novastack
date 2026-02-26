@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <title>المتجر | طلب خدمة</title>
+    <title>المتجر | اطلب خدمتك</title>
 </head>
 <body>
     <header>
-        <div class="logo">NEVO STICK</div>
-        <ul class="nav-links">
-            <li><a href="index.html">الرئيسية</a></li>
-            <li><a href="store.html">المتجر</a></li>
-        </ul>
+        <div class="logo">NEVO STICK - STORE</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">العودة للرئيسية</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container" style="max-width: 600px; margin: 50px auto; padding: 20px;">
-        <h2 class="glitch">اطلب الآن</h2>
-        <input type="email" id="userEmail" placeholder="أدخل الجيميل الخاص بك" required>
+    <div style="max-width: 500px; margin: 40px auto; background: rgba(0,0,0,0.8); padding: 30px; border-radius: 15px; border: 1px solid #333;">
+        <h2 class="glitch" style="font-size: 24px; margin-bottom: 20px;">بيانات الطلب</h2>
         
-        <select id="currency">
-            <option>اختر العملة (20 عملة مدعومة)</option>
-            <option value="EGP">EGP - جنيه مصري</option>
-            <option value="SAR">SAR - ريال سعودي</option>
-            <option value="USD">USD - دولار أمريكي</option>
-            </select>
+        <input type="email" id="userEmail" placeholder="أدخل الجيميل الخاص بك (مهم جداً)" required>
+        
+        <select id="langSelect"><option>اختر اللغة (20 لغة مدعومة)</option></select>
+        <select id="currSelect"><option>اختر العملة (20 عملة مدعومة)</option></select>
 
-        <div style="background:#222; padding:15px; border-radius:10px; margin:10px 0;">
-            <h4>إضافات الخدمة:</h4>
-            <label><input type="checkbox" class="extra" value="+ تسليم سريع"> تسليم سريع (24 ساعة)</label><br>
-            <label><input type="checkbox" class="extra" value="+ كود مصدري"> الحصول على الكود المصدري</label>
+        <div style="text-align: right; margin: 15px 0; background: #111; padding: 10px; border-radius: 5px;">
+            <p style="color: #00d4ff; margin-bottom: 10px;">إضافات اختيارية:</p>
+            <label><input type="checkbox" class="extra" value="دعم فني 24 ساعة"> دعم فني متواصل</label><br>
+            <label><input type="checkbox" class="extra" value="تعديلات غير محدودة"> تعديلات مفتوحة</label>
         </div>
 
-        <textarea id="userNote" placeholder="اكتب ملحوظتك هنا ليراها يوسف..."></textarea>
+        <textarea id="userNote" rows="4" placeholder="اكتب ملحوظتك هنا ليراها يوسف (AXON_DEV)..."></textarea>
         
-        <button class="btn-send" onclick="submitOrder()">تم الدفع - إرسال الطلب</button>
+        <button class="btn-action" style="width: 100%;" onclick="sendOrder()">تم الدفع - إرسال البيانات</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

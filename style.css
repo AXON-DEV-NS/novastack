@@ -1,81 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-
-:root {
-    --neon-blue: #00d4ff;
-    --neon-pink: #ff007f;
-    --dark-bg: #0a0a0a;
-    --card-bg: #161616;
-}
-
-* {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;
-}
-
+/* تنسيق نيون احترافي لـ Nevo Stick */
 body {
-    background-color: var(--dark-bg);
+    background: #0a0a0a;
     color: white;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
     direction: rtl;
-    overflow-x: hidden;
+    text-align: center;
 }
-
-/* حركة النصوص (Animation) */
-.glitch {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: relative;
-    text-shadow: 2px 2px var(--neon-pink);
-    animation: move 2s infinite;
-}
-
-@keyframes move {
-    0% { transform: skew(0deg); }
-    20% { transform: skew(-2deg); color: var(--neon-blue); }
-    40% { transform: skew(2deg); }
-    100% { transform: skew(0deg); }
-}
-
-/* الهيدر */
 header {
     background: rgba(0,0,0,0.9);
-    padding: 1.5rem 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--neon-blue);
-    position: sticky; top: 0; z-index: 1000;
+    padding: 20px;
+    border-bottom: 2px solid #00d4ff;
 }
-
-.nav-links { display: flex; list-style: none; }
-.nav-links li { margin-left: 25px; }
-.nav-links a { color: white; text-decoration: none; transition: 0.3s; font-weight: bold; }
-.nav-links a:hover { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue); }
-
-/* مدخلات البيانات الاحترافية */
-input, textarea, select {
-    width: 100%;
-    padding: 15px;
-    margin: 10px 0;
-    background: #222;
-    border: 1px solid #444;
-    color: white;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
+.nav-links { list-style: none; display: flex; justify-content: center; gap: 20px; padding: 0; }
+.nav-links a, .btn-action {
+    background: #00d4ff; color: black; padding: 10px 20px;
+    border-radius: 5px; text-decoration: none; font-weight: bold; transition: 0.3s;
 }
-
-input:focus { border-color: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
-
-.btn-send {
-    background: linear-gradient(45deg, var(--neon-blue), #005f73);
-    color: white; border: none; padding: 15px 30px;
-    border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%;
-    transition: 0.3s;
-}
-
-.btn-send:hover { transform: scale(1.02); box-shadow: 0 0 20px var(--neon-blue); }
-
-/* لوحة المدير */
-.admin-grid { display: grid; grid-template-columns: 1fr 3fr; gap: 20px; padding: 20px; }
-.order-card { background: var(--card-bg); padding: 20px; border-radius: 10px; border-right: 5px solid var(--neon-blue); margin-bottom: 15px; }
+.nav-links a:hover { background: #ff007f; color: white; }
+.glitch { font-size: 2rem; animation: pulse 2s infinite; color: #00d4ff; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+input, textarea, select { width: 90%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #333; background: #222; color: white; }
