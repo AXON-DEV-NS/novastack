@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>المتجر | طلب خدمة</title>
+</head>
+<body>
+    <header>
+        <div class="logo">NEVO STICK</div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="store.html">المتجر</a></li>
+        </ul>
+    </header>
+
+    <div class="container" style="max-width: 600px; margin: 50px auto; padding: 20px;">
+        <h2 class="glitch">اطلب الآن</h2>
+        <input type="email" id="userEmail" placeholder="أدخل الجيميل الخاص بك" required>
+        
+        <select id="currency">
+            <option>اختر العملة (20 عملة مدعومة)</option>
+            <option value="EGP">EGP - جنيه مصري</option>
+            <option value="SAR">SAR - ريال سعودي</option>
+            <option value="USD">USD - دولار أمريكي</option>
+            </select>
+
+        <div style="background:#222; padding:15px; border-radius:10px; margin:10px 0;">
+            <h4>إضافات الخدمة:</h4>
+            <label><input type="checkbox" class="extra" value="+ تسليم سريع"> تسليم سريع (24 ساعة)</label><br>
+            <label><input type="checkbox" class="extra" value="+ كود مصدري"> الحصول على الكود المصدري</label>
+        </div>
+
+        <textarea id="userNote" placeholder="اكتب ملحوظتك هنا ليراها يوسف..."></textarea>
+        
+        <button class="btn-send" onclick="submitOrder()">تم الدفع - إرسال الطلب</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

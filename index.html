@@ -1,93 +1,23 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaStack | AXON_DEV</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <title>Nevo Stick | الرئيسية</title>
 </head>
 <body>
-    <div id="maintenance-overlay" class="modal-overlay" style="display:none; z-index: 9999;">
-        <div class="modal-content">
-            <h2 style="color: #ff4b2b;">⚠️ الموقع متوقف مؤقتاً</h2>
-            <p>نحن بصدد تحديث النظام، سنعود قريباً.</p>
-        </div>
+    <header>
+        <div class="logo glitch">NEVO STICK</div>
+        <ul class="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="store.html">المتجر</a></li>
+            <li><a href="contact.html">الدعم</a></li>
+        </ul>
+    </header>
+    <div style="text-align:center; padding: 100px;">
+        <h1 class="glitch">مرحباً بك في عالم AXON_DEV</h1>
+        <p>اختر الخدمة، ادفع، واستلم مشروعك باحترافية.</p>
+        <a href="store.html" class="btn-send" style="display:inline-block; width:200px; margin-top:20px;">دخول المتجر</a>
     </div>
-
-    <div id="login-container" class="container glass-effect">
-        <div class="brand-logo floating">NS</div>
-        <h1 class="glow-text">NovaStack</h1>
-        <button id="googleSignIn" class="order-btn glow-blue">Login with Google</button>
-    </div>
-
-    <div id="main-content" class="container glass-effect" style="display: none;">
-        <header style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-            <select id="lang-select" class="glass-input" style="width: 150px; margin:0;"></select>
-            <button id="logoutBtn" class="logout-btn">Logout</button>
-        </header>
-
-        <div id="user-interaction-zone">
-            <div id="payment-ui" style="display:none; border: 1px solid #ff4b2b; padding:15px; border-radius:15px; margin-bottom:15px;">
-                <h3 style="color: #ff4b2b;">💰 تأكيد الدفع</h3>
-                <p style="font-size: 12px; color: #ddd;">ارفع صورة للشاشة (سكرين شوت) عند الدفع وضعها هنا:</p>
-                <input type="file" id="pay-screenshot" class="glass-input" accept="image/*">
-                <button id="client-confirm-pay" class="order-btn glow-green">تأكيد وإرسال 🚀</button>
-            </div>
-            <div id="royal-link-box" class="royal-box" style="display:none;">
-                <h3 style="color: gold;">👑 استلم مشروعك</h3>
-                <div class="royal-input-wrapper">
-                    <input type="text" id="final-link-input" readonly>
-                    <button id="copy-btn">📋</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="calculator-card">
-            <h3 id="calc-h">🛠️ حاسبة المشاريع</h3>
-            <select id="site-type" class="glass-input">
-                <option value="40" data-en="Landing Page" data-ar="صفحة هبوط">صفحة هبوط ($40)</option>
-                <option value="100" data-en="Personal Portfolio" data-ar="موقع شخصي">موقع شخصي ($100)</option>
-                <option value="250" data-en="Business Website" data-ar="موقع شركات">موقع شركات ($250)</option>
-                <option value="450" data-en="E-commerce Store" data-ar="متجر إلكتروني">متجر إلكتروني ($450)</option>
-                <option value="600" data-en="Professional Platform" data-ar="منصة احترافية">منصة احترافية ($600)</option>
-            </select>
-            
-            <div class="options-grid">
-                <label><input type="checkbox" class="addon" value="30" data-en="Multi-Language" data-ar="لغات متعددة"> <span class="addon-txt">لغات متعددة</span></label>
-                <label><input type="checkbox" class="addon" value="50" data-en="Admin Dashboard" data-ar="لوحة مدير"> <span class="addon-txt">لوحة مدير</span></label>
-                <label><input type="checkbox" class="addon" value="25" data-en="SEO Support" data-ar="دعم SEO"> <span class="addon-txt">دعم SEO</span></label>
-                <label><input type="checkbox" class="addon" value="20" data-en="Dark Mode" data-ar="الوضع الليلي"> <span class="addon-txt">الوضع الليلي</span></label>
-                <label><input type="checkbox" class="addon" value="40" data-en="Live Chat" data-ar="دردشة مباشرة"> <span class="addon-txt">دردشة مباشرة</span></label>
-            </div>
-
-            <div class="price-tag">
-                <h2 style="margin:5px 0;">$<span id="total-price">40</span></h2>
-                <p style="font-size: 14px; color: gold;">≈ <span id="total-local">2000</span> <span id="currency-name">ج.م</span></p>
-            </div>
-            <button id="order-tg-btn" class="order-btn glow-blue">اطلب عبر تليجرام ✈️</button>
-        </div>
-    </div>
-
-    <div id="admin-panel" class="container glass-effect admin-mode" style="display:none;">
-        <h2 style="color:gold;">👑 AXON COMMAND</h2>
-        <div class="admin-section">
-            <button id="toggle-site-btn" class="order-btn">حالة الموقع</button>
-            <button id="admin-logout" class="logout-btn" style="width:100%; margin-top:10px; border-color:red; color:red;">تسجيل الخروج 🚪</button>
-        </div>
-        <div class="admin-section">
-            <h4>📦 تحديث العميل</h4>
-            <input type="email" id="adm-email" placeholder="Email" class="glass-input">
-            <input type="text" id="adm-link" placeholder="Link" class="glass-input">
-            <select id="adm-status" class="glass-input">
-                <option value="pending">💻 قيد التنفيذ</option>
-                <option value="paid">💰 فتح الدفع</option>
-                <option value="confirmed">✅ تم التسليم</option>
-            </select>
-            <button id="adm-send-btn" class="order-btn glow-blue">تحديث</button>
-        </div>
-    </div>
-
-    <script type="module" src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
